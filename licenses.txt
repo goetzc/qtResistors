@@ -1,0 +1,5 @@
+Origianl: http://qt-apps.org/content/show.php/qtResistors?content=118297
+License: GPL
+
+Icon: http://megaicons.net/iconspack-60/864/ 
+License: backlink
