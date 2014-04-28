@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=qtResistors
+GenericName=Resistor calculator
+Comment=Calculate resistance of resistor by the colors on the resistor.
+Categories=Qt;Utility;X-KDE-Utilities-Desktop;
+Exec=qtResistors
+Terminal=false
+Type=Application
+Icon=qtResistors
+StartupNotify=true
