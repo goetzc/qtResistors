@@ -20,5 +20,5 @@ package() {
   cd qtResistors-$pkgver
   install -Dm755 qtResistors $pkgdir/usr/bin/qtResistors
   install -Dm644 qtResistors.desktop $pkgdir/usr/share/applications/qtResistors.desktop
-  install -Dm644 qtResistors.png $pkgdir/usr/share/icons/hicolor/256x256/apps/qtResistors.png
+  install -Dm644 qtResistors.svg $pkgdir/usr/share/icons/hicolor/scalable/apps/qtResistors.svg
 }
