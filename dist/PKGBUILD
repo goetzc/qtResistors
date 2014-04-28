@@ -1,0 +1,24 @@
+pkgname=qtresistors
+pkgver=0.1.1
+pkgrel=1
+pkgdesc="Calculate resistance value and tolerance of resistors by their color codes."
+arch=('i686' 'x86_64')
+url="https://github.com/goetzc/qtResistors"
+#url="http://qt-apps.org/content/show.php/qtResistors?content=118297"
+license=('GPL')
+depends=('qt4')
+install=qtResistors.install
+source=("qtResistors-$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+  cd qtResistors-$pkgver
+  qmake-qt4; make
+}
+
+package() {
+  cd qtResistors-$pkgver
+  install -Dm755 qtResistors $pkgdir/usr/bin/qtResistors
+  install -Dm644 qtResistors.desktop $pkgdir/usr/share/applications/qtResistors.desktop
+  install -Dm644 qtResistors.png $pkgdir/usr/share/icons/hicolor/256x256/apps/qtResistors.png
+}
