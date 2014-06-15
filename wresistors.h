@@ -14,7 +14,7 @@ public:
     ~wResistors();
 
 public slots:
-    void preracunaj();
+    void convert();
 
 protected:
     void changeEvent(QEvent *e);
