@@ -65,14 +65,14 @@
    <item row="1" column="5">
     <widget class="QLabel" name="label_ohm">
      <property name="text">
-      <string>Ohm</string>
+      <string>Ω (Ohm)</string>
      </property>
     </widget>
    </item>
    <item row="1" column="6">
     <widget class="QLabel" name="label_tol">
      <property name="text">
-      <string>_</string>
+      <string> </string>
      </property>
     </widget>
    </item>
