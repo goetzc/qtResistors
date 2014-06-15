@@ -14,9 +14,9 @@ wResistors::wResistors(QWidget *parent) :
 
 // Add items in all comboboxes
     ui->comboBox_1->addItem(createIcon("#000000"),"Black");
-    ui->comboBox_1->addItem(createIcon("#AA5500"),"Brown");
+    ui->comboBox_1->addItem(createIcon("#844200"),"Brown");
     ui->comboBox_1->addItem(createIcon("#FF0000"),"Red");
-    ui->comboBox_1->addItem(createIcon("#FFAA00"),"Orange");
+    ui->comboBox_1->addItem(createIcon("#FF7F00"),"Orange");
     ui->comboBox_1->addItem(createIcon("#FFFF00"),"Yellow");
     ui->comboBox_1->addItem(createIcon("#00FF00"),"Green");
     ui->comboBox_1->addItem(createIcon("#0000FF"),"Blue");
@@ -25,9 +25,9 @@ wResistors::wResistors(QWidget *parent) :
     ui->comboBox_1->addItem(createIcon("#FFFFFF"),"White");
 
     ui->comboBox_2->addItem(createIcon("#000000"),"Black");
-    ui->comboBox_2->addItem(createIcon("#AA5500"),"Brown");
+    ui->comboBox_2->addItem(createIcon("#844200"),"Brown");
     ui->comboBox_2->addItem(createIcon("#FF0000"),"Red");
-    ui->comboBox_2->addItem(createIcon("#FFAA00"),"Orange");
+    ui->comboBox_2->addItem(createIcon("#FF7F00"),"Orange");
     ui->comboBox_2->addItem(createIcon("#FFFF00"),"Yellow");
     ui->comboBox_2->addItem(createIcon("#00FF00"),"Green");
     ui->comboBox_2->addItem(createIcon("#0000FF"),"Blue");
@@ -36,16 +36,16 @@ wResistors::wResistors(QWidget *parent) :
     ui->comboBox_2->addItem(createIcon("#FFFFFF"),"White");
 
     ui->comboBox_3->addItem(createIcon("#000000"),"Black");
-    ui->comboBox_3->addItem(createIcon("#AA5500"),"Brown");
+    ui->comboBox_3->addItem(createIcon("#844200"),"Brown");
     ui->comboBox_3->addItem(createIcon("#FF0000"),"Red");
-    ui->comboBox_3->addItem(createIcon("#FFAA00"),"Orange");
+    ui->comboBox_3->addItem(createIcon("#FF7F00"),"Orange");
     ui->comboBox_3->addItem(createIcon("#FFFF00"),"Yellow");
     ui->comboBox_3->addItem(createIcon("#00FF00"),"Green");
     ui->comboBox_3->addItem(createIcon("#0000FF"),"Blue");
     ui->comboBox_3->addItem(createIcon("#AA55FF"),"Violet");
     ui->comboBox_3->addItem(createIcon("#808080"),"Grey");
     ui->comboBox_3->addItem(createIcon("#FFFFFF"),"White");
-    ui->comboBox_3->addItem(createIcon("#FFFF80"),"Gold");
+    ui->comboBox_3->addItem(createIcon("#DCBA00"),"Gold");
     ui->comboBox_3->addItem(createIcon("#DBDBDB"),"Silver");
 
     ui->comboBox_4->addItem(createIcon("#AA5500"),"Brown");
@@ -54,16 +54,16 @@ wResistors::wResistors(QWidget *parent) :
     ui->comboBox_4->addItem(createIcon("#0000FF"),"Blue");
     ui->comboBox_4->addItem(createIcon("#AA55FF"),"Violet");
     ui->comboBox_4->addItem(createIcon("#808080"),"Grey");
-    ui->comboBox_4->addItem(createIcon("#FFFF80"),"Gold");
+    ui->comboBox_4->addItem(createIcon("#DCBA00"),"Gold");
     ui->comboBox_4->addItem(createIcon("#DBDBDB"),"Silver");
-    ui->comboBox_4->addItem("No Color");
+    ui->comboBox_4->addItem("No color");
 
 
 // Connect signals and slots
-    QObject::connect(ui->comboBox_1, SIGNAL(currentIndexChanged(int)),this, SLOT(preracunaj()));
-    QObject::connect(ui->comboBox_2, SIGNAL(currentIndexChanged(int)),this, SLOT(preracunaj()));
-    QObject::connect(ui->comboBox_3, SIGNAL(currentIndexChanged(int)),this, SLOT(preracunaj()));
-    QObject::connect(ui->comboBox_4, SIGNAL(currentIndexChanged(int)),this, SLOT(preracunaj()));
+    QObject::connect(ui->comboBox_1, SIGNAL(currentIndexChanged(int)),this, SLOT(convert()));
+    QObject::connect(ui->comboBox_2, SIGNAL(currentIndexChanged(int)),this, SLOT(convert()));
+    QObject::connect(ui->comboBox_3, SIGNAL(currentIndexChanged(int)),this, SLOT(convert()));
+    QObject::connect(ui->comboBox_4, SIGNAL(currentIndexChanged(int)),this, SLOT(convert()));
 
 }
 
@@ -87,17 +87,16 @@ void wResistors::changeEvent(QEvent *e)
 }
 
 //=========================================================================
-void wResistors::preracunaj()
+void wResistors::convert()
 {    
 // First color represent tens and color ones, so use string to create double digit number.
     QString str1, str2;
 
     str1.setNum((int) ui->comboBox_1->currentIndex());
     str2.setNum((int) ui->comboBox_2->currentIndex());
-    str1 +=str2;
+    str1 += str2;
 
-    float rez = str1.toInt(); // rez je dvocifren broj - rez is double digit no.
-
+    float rez = str1.toInt(); // rez is a two digit number.
 
     str2 = " ";
     switch ((int) ui->comboBox_3->currentIndex())
@@ -108,19 +107,19 @@ void wResistors::preracunaj()
         break;
     case 2:    rez *= pow(10, ui->comboBox_3->currentIndex());
         break;
-    case 3:    str2 = "K";
+    case 3:    str2 = " k";
         break;
-    case 4:    rez *= pow(10, 1);str2 = "K";
+    case 4:    rez *= pow(10, 1); str2 = " k";
         break;
-    case 5:    rez *= pow(10, 2);str2 = "K";
+    case 5:    rez *= pow(10, 2); str2 = " k";
         break;
-    case 6:    str2 = "M";
+    case 6:    str2 = " M";
         break;
-    case 7:    rez *= pow(10, 1);str2 = "M";
+    case 7:    rez *= pow(10, 1); str2 = " M";
         break;
-    case 8:    rez *= pow(10, 2);str2 = "M";
+    case 8:    rez *= pow(10, 2); str2 = " M";
         break;
-    case 9:    rez *= pow(10, 3);str2 = "M";
+    case 9:    rez *= pow(10, 3); str2 = " M";
         break;
     case 10:    rez *= pow(10, -1);
         break;
@@ -132,37 +131,37 @@ void wResistors::preracunaj()
         break;
     }
 
- ui->label_ohm->setText(str1.setNum(rez) + str2 + " Ohm");
+ ui->label_ohm->setText(str1.setNum(rez) + str2 + QString::fromUtf8("Ω"));  // Ohm
 
 // Displays tolerance
     switch (ui->comboBox_4->currentIndex())
     {
     case 0:
-        ui->label_tol->setText("+/-1% (F)");
+        ui->label_tol->setText(QString::fromUtf8("±1% (F)"));
         break;
     case 1:
-        ui->label_tol->setText("+/-2% (G)");
+        ui->label_tol->setText(QString::fromUtf8("±2% (G)"));
         break;
     case 2:
-        ui->label_tol->setText("+/-0.5% (D)");
+        ui->label_tol->setText(QString::fromUtf8("±0.5% (D)"));
         break;
     case 3:
-        ui->label_tol->setText("+/-0.25% (C)");
+        ui->label_tol->setText(QString::fromUtf8("±0.25% (C)"));
         break;
     case 4:
-        ui->label_tol->setText("+/-0.1% (B)");
+        ui->label_tol->setText(QString::fromUtf8("±0.1% (B)"));
         break;
     case 5:
-        ui->label_tol->setText("+/-0.05% (A)");
+        ui->label_tol->setText(QString::fromUtf8("±0.05% (A)"));
         break;
     case 6:
-        ui->label_tol->setText("+/-5% (J)");
+        ui->label_tol->setText(QString::fromUtf8("±5% (J)"));
         break;
     case 7:
-        ui->label_tol->setText("+/-10% (K)");
+        ui->label_tol->setText(QString::fromUtf8("±10% (K)"));
         break;
     case 8:
-        ui->label_tol->setText("+/-20% (M)");
+        ui->label_tol->setText(QString::fromUtf8("±20% (M)"));
         break;
     default:
         ui->label_tol->setText(" ");
