@@ -11,15 +11,28 @@ install='qtResistors.install'
 source=("qtResistors-$pkgver.tar.gz")
 sha256sums=('SKIP')
 
+# To build using Qt 5, change to 1
+_Qt5=0
+[ "$_Qt5" = '1' ] && depends=('qt5-base' 'libxkbcommon-x11')
+
 build() {
-  cd qtResistors-$pkgver
-  qmake-qt4
+  cd qtResistors-$pkgver/src
+  
+  if [ "$_Qt5" = '0' ]; then
+    qmake-qt4
+  elif [ "$_Qt5" = '1' ]; then
+    qmake-qt5
+  else
+    qmake
+  fi
+  
   make
 }
 
 package() {
   cd qtResistors-$pkgver
-  install -Dm755 qtResistors $pkgdir/usr/bin/qtResistors
+  
+  install -Dm755 src/qtResistors $pkgdir/usr/bin/qtResistors
   install -Dm644 qtResistors.desktop $pkgdir/usr/share/applications/qtResistors.desktop
-  install -Dm644 qtResistors.svg $pkgdir/usr/share/icons/hicolor/scalable/apps/qtResistors.svg
+  install -Dm644 icons/qtResistors.png $pkgdir/usr/share/icons/hicolor/64x64/apps/qtResistors.png
 }

@@ -1,0 +1,12 @@
+# This file is used by git to ignore files which are generated
+# ----------------------------------------------------------------------------
+
+*~
+*.autosave
+*.o
+*.orig
+*.rej
+Makefile*
+moc_*.cpp
+qrc_*.cpp
+ui_*.h

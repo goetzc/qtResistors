@@ -8,6 +8,8 @@ TARGET    = qtResistors
 TEMPLATE  = app
 
 
+QT        += widgets
+
 SOURCES   += main.cpp\
           wresistors.cpp
 
