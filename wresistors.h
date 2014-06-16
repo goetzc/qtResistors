@@ -22,7 +22,6 @@ protected:
 private:
     Ui::wResistors *ui;
     QIcon createIcon(QString colorName);
-
 };
 
 #endif // WRESISTORS_H

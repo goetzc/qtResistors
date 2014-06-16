@@ -11,6 +11,9 @@ wResistors::wResistors(QWidget *parent) :
         ui(new Ui::wResistors)
 {
     ui->setupUi(this);
+    
+// Set app icon
+    setWindowIcon(QIcon(":/qtResistors.png"));
 
 // Add items in all comboboxes
     ui->comboBox_1->addItem(createIcon("#000000"),"Black");

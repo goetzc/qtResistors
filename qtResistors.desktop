@@ -2,7 +2,7 @@
 Version=1.0
 Name=qtResistors
 GenericName=Resistor calculator
-Comment=Calculate resistance of resistor by the colors on the resistor.
+Comment=Calculate resistance value and tolerance of resistors by their color codes.
 Categories=Qt;Utility;X-KDE-Utilities-Desktop;
 Exec=qtResistors
 Terminal=false

@@ -4,13 +4,15 @@
 #
 #-------------------------------------------------
 
-TARGET = qtResistors
-TEMPLATE = app
+TARGET    = qtResistors
+TEMPLATE  = app
 
 
-SOURCES += main.cpp\
-        wresistors.cpp
+SOURCES   += main.cpp\
+          wresistors.cpp
 
-HEADERS  += wresistors.h
+HEADERS   += wresistors.h
 
-FORMS    += wresistors.ui
+FORMS     += wresistors.ui
+
+RESOURCES += wresistors.qrc

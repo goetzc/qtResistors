@@ -17,7 +17,7 @@
    <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label_chosecolor">
      <property name="text">
-      <string>Chose resistor's colors</string>
+      <string>Choose resistor's colors</string>
      </property>
     </widget>
    </item>
