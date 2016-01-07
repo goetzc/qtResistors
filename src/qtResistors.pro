@@ -7,6 +7,7 @@
 TARGET    = qtResistors
 TEMPLATE  = app
 
+CONFIG    += c++11
 
 QT        += widgets
 

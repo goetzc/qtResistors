@@ -1,10 +1,11 @@
 #include "wresistors.h"
 #include "ui_wresistors.h"
 //=========================================================================
-#include <QString>
 #include <math.h>
-#include <QPixmap>
 #include <QIcon>
+#include <QList>
+#include <QPixmap>
+#include <QString>
 //=========================================================================
 wResistors::wResistors(QWidget *parent) :
         QDialog(parent),
@@ -137,40 +138,18 @@ void wResistors::convert()
  ui->label_ohm->setText(str1.setNum(rez) + str2 + QString::fromUtf8("Ω"));  // Ohm
 
 // Displays tolerance
-    switch (ui->comboBox_4->currentIndex())
-    {
-    case 0:
-        ui->label_tol->setText(QString::fromUtf8("±1% (F)"));
-        break;
-    case 1:
-        ui->label_tol->setText(QString::fromUtf8("±2% (G)"));
-        break;
-    case 2:
-        ui->label_tol->setText(QString::fromUtf8("±0.5% (D)"));
-        break;
-    case 3:
-        ui->label_tol->setText(QString::fromUtf8("±0.25% (C)"));
-        break;
-    case 4:
-        ui->label_tol->setText(QString::fromUtf8("±0.1% (B)"));
-        break;
-    case 5:
-        ui->label_tol->setText(QString::fromUtf8("±0.05% (A)"));
-        break;
-    case 6:
-        ui->label_tol->setText(QString::fromUtf8("±5% (J)"));
-        break;
-    case 7:
-        ui->label_tol->setText(QString::fromUtf8("±10% (K)"));
-        break;
-    case 8:
-        ui->label_tol->setText(QString::fromUtf8("±20% (M)"));
-        break;
-    default:
-        ui->label_tol->setText(" ");
-        break;
-    }
+    QList<QString> tolerance({"±1% (F)",
+                              "±2% (G)",
+                              "±0.5% (D)",
+                              "±0.25% (C)",
+                              "±0.1% (B)",
+                              "±0.05% (A)",
+                              "±5% (J)",
+                              "±10% (K)",
+                              "±20% (M)"});
 
+    int index = ui->comboBox_4->currentIndex();
+    ui->label_tolerance->setText(tolerance[index]);
 }
 //=========================================================================
 // Used for drawing color in ComboBoxes
