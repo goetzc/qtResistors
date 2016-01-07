@@ -123,7 +123,7 @@ void wResistors::convert()
         break;
     case 8:    rez *= pow(10, 2); str2 = " M";
         break;
-    case 9:    rez *= pow(10, 3); str2 = " M";
+    case 9:    str2 = " G";
         break;
     case 10:    rez *= pow(10, -1);
         break;
